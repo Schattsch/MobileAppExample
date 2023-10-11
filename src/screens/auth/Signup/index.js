@@ -4,6 +4,7 @@ import AuthHeader from "../../../components/AuthHeader";
 import { styles } from "./styles";
 import Input from "../../../components/Input";
 import Checkbox from "../../../components/Checkbox";
+import Button from "../../../components/Button";
 
 const SignUp = () => {
     const [checked, setChecked] = useState(false)
@@ -18,6 +19,7 @@ const SignUp = () => {
                 <Checkbox checked={checked} onCheck={setChecked}></Checkbox>
                 <Text style={styles.agreeText}>I agree with <Text style={styles.boldText}>Terms</Text> & <Text style={styles.boldText}>Privacy</Text></Text>
             </View>
+            <Button style={styles.button} title="Sign In" />
             </View>
     )
 }
