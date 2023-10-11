@@ -1,9 +1,16 @@
 import React from "react";
-import {Text} from "react-native"
+import {
+    Text,
+    View,
+    Image
+} from "react-native"
 
 const Splash = () => {
     return (
-        <Text>You'll Find All you need Here!</Text>
+        <View>
+            <Image source={require('../../../assets/splash_image.png')}/>
+            <Text>You'll Find All you need Here!</Text>
+        </View>
     )
 }
 export default Splash
