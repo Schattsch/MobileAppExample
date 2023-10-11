@@ -8,9 +8,11 @@ import {styles} from "./styles";
 
 const Splash = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Image resizeMode="contain" style={styles.image} source={require('../../../assets/splash_image.png')}/>
-            <Text>You'll Find All you need Here!</Text>
+            <Text style={styles.title}>You'll Find</Text>
+            <Text style={[styles.title, styles.innerTitle]}>All you need</Text>
+            <Text style={styles.title}>Here!</Text>
         </View>
     )
 }
