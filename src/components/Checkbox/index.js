@@ -13,5 +13,5 @@ const Checkbox = ({checked, onCheck}) => {
             ) : null}
         </TouchableOpacity>
     )
-}dsada
+}
 export default Checkbox
