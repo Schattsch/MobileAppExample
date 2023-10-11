@@ -15,7 +15,7 @@ const Splash = () => {
             <Text style={[styles.title, styles.innerTitle]}>All you need</Text>
             <Text style={styles.title}>Here!</Text>
 
-            <Button title="Sign Up"/>
+            <Button title="Sign Up" />
         </View>
     )
 }
