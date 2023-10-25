@@ -33,7 +33,6 @@ export const styles = StyleSheet.create( {
         padding: 24,
         flexDirection: 'row',
         alignItems: 'center',
-        marginRight: 75
     },
     save: {
         flex: 1,   
