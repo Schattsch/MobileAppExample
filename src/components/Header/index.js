@@ -40,16 +40,13 @@ const Header = ({
           <View style={styles.space} />
         )}
         <Text style={styles.title}>{title}</Text>
-        {showLogout ? (
+        {
+        showLogout ? (
           <Pressable hitSlop={20} onPress={onLogout}>
-            <Image
-              style={styles.icon}
-              source={require('../../assets/logout.png')}
-            />
+            <Image style={styles.icon} source={require('../../assets/logout.png')}/>
           </Pressable>
-        ) : (
-          <View style={styles.space} />
-        )}
+        ) : <View style={styles.space} />
+        }
       </View>
       {showSearchInput ? <Input onChangeText={onSearchKeyword} value={keyword} placeholder="Type your keyword"></Input> : null}
     </View>
