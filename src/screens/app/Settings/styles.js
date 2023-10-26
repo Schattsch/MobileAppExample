@@ -20,7 +20,7 @@ export const styles = StyleSheet.create( {
     },
     sectionHeader: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     icon: {
         width: 24,

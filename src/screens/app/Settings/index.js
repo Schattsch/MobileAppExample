@@ -7,7 +7,7 @@ import EditableBox from "../../../components/EditableBox";
 import Button from "../../../components/Button";
 import { styles } from "./styles";
 
-const Settings = () => {
+const Settings = ( {navigation} ) => {
     const [editing, setEditing] = useState(false);
     const [values, setValues] = useState({name: 'User', email: 'user@mail.com'});
 
@@ -26,10 +26,14 @@ const Settings = () => {
     const onItemPress = () => {
         Linking.openURL('https://google.com')
     }
+    
+    const goBack = () => {
+        navigation.goBack();
+    }
 
     return (
         <SafeAreaView style={{flex: 1}}>
-            <Header title="Settings"></Header>
+            <Header title="Settings" showBack={true} onBackPress={goBack}></Header>
             <View style={styles.container}>
                 <View style={styles.sectionHeader}>
                     <Text style={styles.sectionTitle}>Personal Information</Text>
