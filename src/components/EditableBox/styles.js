@@ -1,12 +1,11 @@
-import { colors } from "../../utils/colors";
 import { StyleSheet } from "react-native";
+
+import { colors } from "../../utils/colors";
 
 export const styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: 'space-between',
-        padding: 16,
+        paddingHorizontal: 16,
+        paddingVertical: 12,
         shadowColor: colors.black,
         shadowOffset: {
             width: 0,
@@ -17,21 +16,17 @@ export const styles = StyleSheet.create({
         elevation: 6,
         backgroundColor: colors.white,
         marginVertical: 12,
-        borderRadius: 4,
+        borderRadius: 4
     },
 
-    title: {
-        color: colors.blue,
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    subtitle: {
+    label: {
         color: colors.grey,
         fontSize: 12,
-        marginTop: 6
+        marginBottom: 6,
     },
-    arrow: {
-        height: 16,
-        width: 8,
-    }
+    input: {
+        color: colors.blue,
+        fontSize: 14,
+        fontWeight: '500'
+    },
 })
