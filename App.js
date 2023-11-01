@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { Image } from "react-native";
 
@@ -21,6 +21,9 @@ import CreateListing from './src/screens/app/CreateListing';
 
 import Config from 'react-native-config';
 import ProductDetails from './src/screens/app/ProductDetails';
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
+export const UserContext = React.createContext()
 
 const ProfileStack = () => {
   return (
@@ -33,8 +36,6 @@ const ProfileStack = () => {
 }
 
 const Stack = createNativeStackNavigator();
-
-const isSignedIn = true
 
 const Tab = createBottomTabNavigator();
 
@@ -70,6 +71,16 @@ const Tabs = () => {
 
 
 const App = () => {
+const isSignedIn = false
+const [user, setUser] = useState()
+
+useEffect(() => {
+  (async() => {
+    const accessToken = await AsyncStorage.getItem('auth_token')
+    setUser({accessToken})
+  })()
+}, []);
+
   useEffect(() => {
     GoogleSignin.configure({
       scopes: ['https://www.googleapis.com/auth/drive.readonly'], 
@@ -86,10 +97,11 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
+      <UserContext.Provider value={{user, setUser}}>
     <NavigationContainer theme={theme}>
       <Stack.Navigator>
         {
-          isSignedIn ? (
+          user?.accessToken ? (
             <>
             <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}}/>
             <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}}/>
@@ -104,6 +116,7 @@ const App = () => {
         }
       </Stack.Navigator>
     </NavigationContainer>
+    </UserContext.Provider>
     </SafeAreaProvider>
   )
 };
