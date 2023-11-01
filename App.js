@@ -21,6 +21,7 @@ import CreateListing from './src/screens/app/CreateListing';
 
 import Config from 'react-native-config';
 import ProductDetails from './src/screens/app/ProductDetails';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export const UserContext = React.createContext()
 
@@ -72,6 +73,13 @@ const Tabs = () => {
 const App = () => {
 const isSignedIn = false
 const [user, setUser] = useState()
+
+useEffect(() => {
+  (async() => {
+    const accessToken = await AsyncStorage.getItem('auth_token')
+    setUser({accessToken})
+  })()
+}, []);
 
   useEffect(() => {
     GoogleSignin.configure({
